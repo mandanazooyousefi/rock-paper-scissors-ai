@@ -36,12 +36,12 @@ A simple machine learning-powered **AI agent** that plays **Rock-Paper-Scissors*
 
 ## 📂 Folder Structure
 
-rock-paper-scissors-ai/
+'''rock-paper-scissors-ai/
 ├── main.py # Terminal-based gameplay and data logging
 ├── gui.py # Tkinter GUI gameplay with AI agent
 ├── ai_model.py # ML model training and prediction logic
 ├── data.csv # Player move history for training
-├── README.md # Project description and usage guide
+├── README.md # Project description and usage guide'''
 
 
 

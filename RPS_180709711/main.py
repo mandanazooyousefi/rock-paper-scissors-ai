@@ -31,7 +31,7 @@ def get_ai_move():
     recent_labels = le.inverse_transform(recent)
     predicted = predict_next_move(model, recent_labels, le)
     
-    # Kazanacak hamleyi seç
+    
     counter = {"rock": "paper", "paper": "scissors", "scissors": "rock"}
     return counter[predicted]
 

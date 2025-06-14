@@ -65,6 +65,6 @@ rock-paper-scissors-ai/
 3.Launch the graphical interface:
     python gui.py
 4.Play with the AI
-   Choose Rock 🪨, Paper 📄, or Scissors ✂️
+   Choose Rock , Paper , or Scissors 
     The AI will predict your next move and play the counter
     The game keeps score and learns from your past moves via data.csv 

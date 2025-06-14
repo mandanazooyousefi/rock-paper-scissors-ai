@@ -1,4 +1,4 @@
-# ai_model.py
+
 import pandas as pd
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.preprocessing import LabelEncoder
@@ -19,7 +19,7 @@ def prepare_dataset(file_path="data.csv", history_size=3):
         X.append(prev_moves)
         y.append(next_move)
     
-    # Encode string labels to numbers
+   
     le = LabelEncoder()
     all_moves = ["rock", "paper", "scissors"]
     le.fit(all_moves)
@@ -29,19 +29,19 @@ def prepare_dataset(file_path="data.csv", history_size=3):
     
     return X_encoded, y_encoded, le
 
-# Modeli eğit
+
 def train_model(X, y):
     clf = DecisionTreeClassifier()
     clf.fit(X, y)
     return clf
 
-# AI tahmini
+
 def predict_next_move(model, recent_moves, le):
     encoded = le.transform(recent_moves).reshape(1, -1)
     pred = model.predict(encoded)[0]
     return le.inverse_transform([pred])[0]
 
-# Eğer bu dosya doğrudan çalıştırılırsa test et
+
 if __name__ == "__main__":
     X, y, le = prepare_dataset()
     if X is None:

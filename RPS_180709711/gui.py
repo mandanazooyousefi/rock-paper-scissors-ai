@@ -3,11 +3,11 @@ import csv
 from ai_model import prepare_dataset, train_model, predict_next_move
 from random import choice
 
-# Global skorlar
+# scores
 player_score = 0
 ai_score = 0
 
-# AI hamlesi tahmini
+# AI move prediction
 def get_ai_move():
     X, y, le = prepare_dataset()
     if X is None:
@@ -19,7 +19,7 @@ def get_ai_move():
     counter = {"rock": "paper", "paper": "scissors", "scissors": "rock"}
     return counter[predicted]
 
-# Kazananı belirle ve skor güncelle
+# winner and update the score
 def determine_winner(player, ai):
     global player_score, ai_score
     if player == ai:
@@ -33,7 +33,7 @@ def determine_winner(player, ai):
         ai_score += 1
         return "AI kazandı!"
 
-# Oyun oynanır
+# play game
 def play(move):
     ai_move = get_ai_move()
     result = determine_winner(move, ai_move)
@@ -41,13 +41,13 @@ def play(move):
     score_label.config(text=f"Skor: Sen {player_score} - {ai_score} AI")
     save_choice(move)
 
-# Hamleyi kaydet
+# saving move
 def save_choice(choice):
     with open("data.csv", mode="a", newline="") as file:
         writer = csv.writer(file)
         writer.writerow([choice])
 
-# Skorları ve sonucu sıfırla
+# reset scores and result
 def reset_game():
     global player_score, ai_score
     player_score = 0
@@ -55,7 +55,7 @@ def reset_game():
     result_label.config(text="")
     score_label.config(text="Skor: Sen 0 - 0 AI")
 
-# Arayüz
+# Interface
 root = tk.Tk()
 root.title("Rock Paper Scissors - AI")
 root.geometry("400x300")
